@@ -1,4 +1,4 @@
-module github.com/michelia/urmq
+module github.com/michelia/ulog
 
 replace (
 	golang.org/x/crypto => github.com/golang/crypto v0.0.0-20190506204251-e1dfcc566284
