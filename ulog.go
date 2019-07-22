@@ -41,6 +41,7 @@ func NewLog(c Config) *zerolog.Logger {
 		w := zerolog.NewConsoleWriter()
 		w.TimeFormat = "2006-01-02T15:04:05.000"
 		w.NoColor = true
+		w.FormatLevel = formatLevel
 		w.Out = out
 		zout = w
 	}
@@ -57,9 +58,17 @@ func NewLog(c Config) *zerolog.Logger {
 func NewLogConsole(noColor ...bool) *zerolog.Logger {
 	w := zerolog.NewConsoleWriter()
 	w.TimeFormat = "01-02T15:04:05"
-	if len(noColor) > 0 {
-		w.NoColor = noColor[0]
-	}
+	w.NoColor = true
+	w.FormatLevel = formatLevel
 	log := zerolog.New(w).With().Timestamp().Logger()
 	return &log
+}
+
+// formatLevel 不用默认的, 用比较直观的
+// 参考: https://github.com/rs/zerolog/blob/master/console.go#L315
+func formatLevel(i interface{}) string {
+	if ll, ok := i.(string); ok {
+		return ll
+	}
+	return "?????" // 异常时候用的
 }
