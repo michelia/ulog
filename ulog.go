@@ -55,7 +55,7 @@ func NewLog(c Config) *zerolog.Logger {
 }
 
 // NewLogConsole 创建终端日志格式
-func NewLogConsole(noColor ...bool) *zerolog.Logger {
+func NewLogConsole() *zerolog.Logger {
 	w := zerolog.NewConsoleWriter()
 	w.TimeFormat = "01-02T15:04:05"
 	w.NoColor = true
