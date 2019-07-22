@@ -20,6 +20,5 @@ func TestNewLogConsole(t *testing.T) {
 	log := NewLogConsole()
 	log.Print("test print")
 	log.Error().Str("f1", "foo").Msg("test")
-	NewLogConsole(true).Print("noColor test print")
-	NewLogConsole(false).Print("test print")
+	NewLogConsole().Print("test print")
 }
