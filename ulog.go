@@ -72,5 +72,5 @@ func formatLevel(i interface{}) string {
 	if ll, ok := i.(string); ok {
 		return ll
 	}
-	return "?????" // 异常时候用的
+	return "" // 异常时候, level为空
 }
