@@ -14,11 +14,11 @@ func TestNewLog(t *testing.T) {
 			"f2": "bar",
 		},
 	}
-	NewLog(c).Info().Dur("dur", time.Second).Msg("test")
+	New(c).Info().Dur("dur", time.Second).Msg("test")
 }
-func TestNewLogConsole(t *testing.T) {
-	log := NewLogConsole()
+func TestNewConsole(t *testing.T) {
+	log := NewConsole()
 	log.Print("test print")
 	log.Error().Str("f1", "foo").Msg("test")
-	NewLogConsole().Print("test print")
+	NewConsole().Print("test print")
 }

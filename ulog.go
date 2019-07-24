@@ -20,8 +20,8 @@ type Config struct {
 	IsJSON     bool              // 默认是非json格式
 }
 
-// NewLog 日常使用的log, 建议使用json效率更高
-func NewLog(c Config) Logger {
+// New 日常使用的log, 建议使用json效率更高
+func New(c Config) Logger {
 	// init zerolog format
 	zerolog.TimeFieldFormat = "2006-01-02T15:04:05.000"
 	zerolog.DurationFieldInteger = true
@@ -56,8 +56,8 @@ func NewLog(c Config) Logger {
 	return &slog
 }
 
-// NewLogConsole 创建终端日志格式
-func NewLogConsole() Logger {
+// NewConsole 创建终端日志格式
+func NewConsole() Logger {
 	w := zerolog.NewConsoleWriter()
 	w.TimeFormat = "01-02T15:04:05"
 	w.NoColor = true
