@@ -8,6 +8,8 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
+type Logger = *zerolog.Logger
+
 // Config 可用在配置文件中
 type Config struct {
 	Filename   string            // 日志文件
@@ -19,7 +21,7 @@ type Config struct {
 }
 
 // NewLog 日常使用的log, 建议使用json效率更高
-func NewLog(c Config) *zerolog.Logger {
+func NewLog(c Config) Logger {
 	// init zerolog format
 	zerolog.TimeFieldFormat = "2006-01-02T15:04:05.000"
 	zerolog.DurationFieldInteger = true
@@ -55,7 +57,7 @@ func NewLog(c Config) *zerolog.Logger {
 }
 
 // NewLogConsole 创建终端日志格式
-func NewLogConsole() *zerolog.Logger {
+func NewLogConsole() Logger {
 	w := zerolog.NewConsoleWriter()
 	w.TimeFormat = "01-02T15:04:05"
 	w.NoColor = true
