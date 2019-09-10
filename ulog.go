@@ -8,7 +8,16 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-type Logger = *zerolog.Logger
+type (
+	Logger = *zerolog.Logger
+)
+
+var (
+	DebugLevel = zerolog.DebugLevel
+	InfoLevel  = zerolog.InfoLevel
+	WarnLevel  = zerolog.WarnLevel
+	ErrorLevel = zerolog.ErrorLevel
+)
 
 // Config 可用在配置文件中
 type Config struct {
