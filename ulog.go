@@ -10,6 +10,7 @@ import (
 
 type (
 	Logger = *zerolog.Logger
+	Level = zerolog.Level
 )
 
 var (
